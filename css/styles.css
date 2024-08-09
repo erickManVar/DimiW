@@ -5,21 +5,76 @@
     outline-style: none;
 }
 
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%; /* Ensures cards take full width on mobile */
+    margin-bottom: 20px; /* Space between cards */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    background-color: var(--haccent); /* Adjust button color */
+    color: var(--txtaccent); /* Button text color */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #af6c65; /* Primary button color */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #caa5a5; /* Hover color */
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 48%; /* For tablets, make the cards 48% of the container's width */
+        margin-bottom: 30px; /* Space between cards */
+    }
+
+    .cont {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .text-center {
+        width: 100%; /* Ensures the button spans the entire container width */
+        margin-top: 20px; /* Space above the button */
+    }
+}
+
+
+/* Default styles for larger screens */
 .whatsapp-button {
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
-    height: 65px;
-    bottom: 40px; /* Adjust to move it higher */
-    right: 50px;  /* Adjust to move it more to the left */
+    height: 55px;
+    bottom: 40px;
+    right: 50px;
     background-color: #25D366;
     color: #FFF;
-    border-radius: 30px;
+    border-radius: 50px;
     padding: 0 20px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 10px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,11 +85,25 @@
 }
 
 .whatsapp-button span {
-    font-size: 24px;
+    font-size: 18px;
 }
 
-.whatsapp-button:hover {
-    background-color: #128C7E;
+/* Media query for mobile devices */
+@media (max-width: 576px) {
+    .whatsapp-button {
+        height: 45px; /* Reduce the button height */
+        bottom: 20px; /* Adjust the position */
+        right: 20px; /* Adjust the position */
+        padding: 0 15px; /* Reduce padding */
+    }
+
+    .whatsapp-button i {
+        font-size: 24px; /* Reduce icon size */
+    }
+
+    .whatsapp-button span {
+        font-size: 14px; /* Reduce text size */
+    }
 }
 
 
@@ -52,7 +121,7 @@ html {
     --textaccent3: #484848;
     --txtaccent4: #000;
     --txtaccent5: #E5E5E5;
-    --haccent: #8b3e35;
+    --haccent: #af6c65;
     --haccent_withOpacity: rgba(255, 203, 15,0.6);
     --haccent2: #caa5a5;
     --bgaccent: #1A1C27;
@@ -70,10 +139,26 @@ html {
     background-color: rgba(139, 62, 53, 0.5) !important; /* Color con 50% de opacidad */
 }
 
+.contactUs form input[type="submit"] {
+    border: 2px solid #af6c6556; /* Change to your desired border color */
+    background-color: #af6c65; /* Background color of the button */
+    color: #FFF; /* Text color inside the button */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contactUs form input[type="submit"]:hover {
+    background-color: #caa5a5; /* Lighter background on hover */
+    border-color: #caa5a5; /* Change border color on hover */
+    color: #FFF; /* Maintain text color on hover */
+}
+
 
 /* SECTION ZERO = LANDING VIEW */
 #sec-0{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url(../Images/banner.jpg) no-repeat top center/cover;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(../Images/banner.jpg) no-repeat top center/cover;
 }
 #sec-0 header.top {
     background-color: var(--haccent);
@@ -263,9 +348,10 @@ html {
     padding-left: 4rem;
     padding-right: 4rem;
 }
-#sec-0 article a{
-    color: var(--haccent2);
-    background-color: var(--txtaccent4);
+
+.btn-submit {
+    color: white;
+    background-color: #af6c65;
     display: inline-block;
     padding: 8px 15px;
     margin-left: 5px;
@@ -273,7 +359,66 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
+    cursor: pointer; /* Make sure the button has a pointer cursor */
 }
+
+.btn-submit:hover {
+    background-color: #caa5a5; /* Hover effect */
+}
+
+
+/* Default button styling */
+#sec-0 article a {
+    color: white;
+    background-color: #af6c65;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-left: 15px;
+    margin-bottom: 20px; /* Add some space between buttons */
+    border: solid 1px var(--haccent2);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: auto; /* Let the buttons be of auto width by default */
+}
+
+/* Media query for small screens */
+@media (max-width: 576px) {
+    #sec-0 article a {
+        display: block; /* Make buttons block elements to stack vertically */
+        width: 100%; /* Make the buttons take up full width */
+        text-align: center; /* Center the text inside the buttons */
+        margin-left: 0; /* Remove left margin */
+    }
+}
+
+
+#sec-0 .button-group a {
+    color: white;
+    background-color: #af6c65;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    border: solid 1px var(--haccent2);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container hover effect */
+#sec-0 .button-group:hover a {
+    background-color: #caa5a5; /* Change to the color you want on hover */
+    color: #fff; /* Ensure text color contrasts well on hover */
+}
+
+/* Adjust margin for the first button to remove left margin */
+#sec-0 .button-group a:first-child {
+    margin-left: 0;
+}
+
+
 #sec-0 article a:hover{
     background-color: var(--haccent2);
     color: var(--txtaccent);
@@ -431,15 +576,18 @@ text-shadow:1px 1px #73757E;
     font-size: 1.5rem;
     font-weight: 400;
 }
-#sec-3 a{
+#sec-3 a {
     color: var(--txtaccent);
     background-color: var(--haccent);
     text-transform: uppercase;
     text-decoration: none;
-    padding: 6px 15px;
-    border-radius: 5px;
+    padding: 15px 50px; /* Increase padding for a bigger button */
+    font-size: 1.25rem; /* Increase the font size */
+    border-radius: 8px; /* Slightly increase the border-radius for a more substantial button */
     display: inline-block;
+    text-align: center;
 }
+
 /* SECTION 4 */
 #sec-4{
     background: linear-gradient(rgba(78, 76, 70, 0.8),rgba(78, 76, 70, 0.8)), url(../Images/bg2.jpg) no-repeat center center/cover;
